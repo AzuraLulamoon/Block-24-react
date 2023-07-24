@@ -10,22 +10,25 @@ function App() {
   console.log(featuredPup)
   return (
     <>
-      <div>
+      <h1 className='header'>Da Best Puppies</h1>
+      <div className='pupList'>
         {
           puppies.map((puppy) => {
-            return <p onClick={()=>{ setFeatPupId(puppy.id)}} key={puppy.id}> {puppy.name} </p>
+            return <p className='pupName' onClick={()=>{ setFeatPupId(puppy.id)}} key={puppy.id}> {puppy.name} </p>
           })
         }
-        { featPupId && (
-          <div>
-            <h2>{featuredPup.name}</h2>
-            <ul>
-              <li> Age: {featuredPup.age} </li>
-              <li> Email: {featuredPup.email} </li>
+      </div>
+      { featPupId && (
+          <div className='pupCard'>
+            <h2 className='cardTitle'>{featuredPup.name}</h2>
+            <ul className='cardList'>
+              <li className='cardAge'> Age: {featuredPup.age} </li>
+              <li className='cardEmail'> Email: {featuredPup.email} </li>
+              <li className='cardCute'> Are they cute?: {featuredPup.isCute} </li>
+              <img src={featuredPup.imgUrl}/>
             </ul>
           </div>
         )}
-      </div>  
     </>
   )
 }
