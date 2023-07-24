@@ -16,7 +16,15 @@ function App() {
             return <p onClick={()=>{ setFeatPupId(puppy.id)}} key={puppy.id}> {puppy.name} </p>
           })
         }
-        <p>{ featPupId && <p>{ featPupId }</p> }</p>
+        { featPupId && (
+          <div>
+            <h2>{featuredPup.name}</h2>
+            <ul>
+              <li> Age: {featuredPup.age} </li>
+              <li> Email: {featuredPup.email} </li>
+            </ul>
+          </div>
+        )}
       </div>  
     </>
   )
